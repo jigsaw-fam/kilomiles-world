@@ -80,7 +80,7 @@ for (idx, info) in enumerate(chunk):
         (img, species, aura, spirit) = info
         metadata['image'] = IPFS_1_100.format(img)
         metadata['attributes'].append({ 'trait_type': 'Species', 'value': species })
-        metadata['attributes'].append({ 'trait_type': 'Auro',    'value': aura })
+        metadata['attributes'].append({ 'trait_type': 'Aura',    'value': aura })
         metadata['attributes'].append({ 'trait_type': 'Spirit',  'value': spirit })
 
     # write file
