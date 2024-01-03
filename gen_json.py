@@ -69,7 +69,7 @@ for (idx, info) in enumerate(chunk):
 
     # craft data
     metadata = {
-      'name'        : '{} #{}'.format(NAME, token_id),
+      'name'        : 'Kilomiles World #{}'.format(token_id),
       'description' : DESC,
       'image'       : IPFS_EGG,
       'attributes'  : [],
