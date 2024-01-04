@@ -3,10 +3,11 @@ from pprint import pprint as pp
 
 FROM_ID     = 1
 TO_ID       = 1_000
+JPG_TOKENS  = [ 71, 74 ]
 NAME        = 'KilomilesWorld'
 DESC        = 'Character fashion design # AI generated 1/1 edition only # Design prompt : Lung Jack'
 IPFS_EGG    = 'ipfs://bafybeih6s6l6vl6fascgi6usajp45gay3we2u4pgvqkjwmycawibbehguu/KilomilesWorldEgg.png'
-IPFS_1_100  = 'ipfs://bafybeih6s6l6vl6fascgi6usajp45gay3we2u4pgvqkjwmycawibbehguu/{}.png'
+IPFS_1_100  = 'ipfs://bafybeih6s6l6vl6fascgi6usajp45gay3we2u4pgvqkjwmycawibbehguu/{}.{}'
 INPUT_PATH  = './csv/raw.csv'
 OUTPUT_PATH = './json/{}.json'
 
@@ -78,7 +79,8 @@ for (idx, info) in enumerate(chunk):
     # update image, traits
     if info is not None:
         (img, species, aura, spirit) = info
-        metadata['image'] = IPFS_1_100.format(img)
+        ext = 'jpg' if token_id in JPG_TOKENS else 'png'
+        metadata['image'] = IPFS_1_100.format(img, ext)
         metadata['attributes'].append({ 'trait_type': 'Species', 'value': species })
         metadata['attributes'].append({ 'trait_type': 'Aura',    'value': aura })
         metadata['attributes'].append({ 'trait_type': 'Spirit',  'value': spirit })
