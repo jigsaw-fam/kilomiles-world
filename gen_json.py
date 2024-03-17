@@ -4,6 +4,7 @@ from pprint import pprint as pp
 FROM_ID     = 1
 TO_ID       = 1_000
 JPG_TOKENS  = [ 71, 74 ]
+CUSTOM_TOKENS = [ 901 ] # skip some custom jsons
 NAME        = 'KilomilesWorld'
 DESC        = 'Character fashion design # AI generated 1/1 edition only # Design prompt : Lung Jack'
 IPFS_EGG    = 'ipfs://bafybeih6s6l6vl6fascgi6usajp45gay3we2u4pgvqkjwmycawibbehguu/KilomilesWorldEgg.png'
@@ -67,6 +68,10 @@ for token_id in range(running_id, TO_ID+1):
 for (idx, info) in enumerate(chunk):
     token_id = idx + 1
     dest = OUTPUT_PATH.format(token_id)
+
+    # skip #4
+    if token_id in CUSTOM_TOKENS:
+        continue
 
     # craft data
     metadata = {
