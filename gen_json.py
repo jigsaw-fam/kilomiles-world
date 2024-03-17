@@ -91,7 +91,7 @@ for (idx, info) in enumerate(chunk):
         if token_id <= 100:
             metadata['image'] = IPFS_1_100.format(img, ext)
         elif token_id <= 300:
-            metadata['image'] = IPFS_101_300.format(img, ext)
+            metadata['image'] = IPFS_101_300.format(token_id, ext)
 
         metadata['attributes'].append({ 'trait_type': 'Species', 'value': species })
         metadata['attributes'].append({ 'trait_type': 'Aura',    'value': aura })
